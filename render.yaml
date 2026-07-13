@@ -22,3 +22,5 @@ services:
         sync: false # Provide this manually in Render dashboard
       - key: CHAPA_SECRET_KEY
         sync: false # Provide this manually in Render dashboard
+      - key: FIREBASE_SERVICE_ACCOUNT
+        sync: false # Paste your firebase-service-account.json content here in Render dashboard
