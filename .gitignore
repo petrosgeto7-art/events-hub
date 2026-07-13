@@ -11,3 +11,4 @@ coverage/
 .turbo/
 prisma/*.db
 uploads/
+firebase-service-account.json
