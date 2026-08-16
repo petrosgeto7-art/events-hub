@@ -206,7 +206,7 @@ export default function ScannerPage() {
             <div className="flex-1 w-full space-y-2">
               <label className="text-sm font-bold text-foreground">Select Active Event</label>
               <Select value={selectedEventId} onValueChange={(val) => {
-                setSelectedEventId(val);
+                setSelectedEventId(val || '');
                 setIsScanning(false);
                 setLastScanResult(null);
                 setScanCount({ total: 0, successful: 0 });
