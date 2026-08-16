@@ -162,7 +162,7 @@ router.patch(
         data: { isActive: true, isVerified: true },
         select: { id: true, email: true, firstName: true, lastName: true, role: true, isActive: true, isVerified: true },
       });
-      sendSuccess(res, user, 'User activated successfully');
+      sendSuccess(res, user, 200, { message: 'User activated successfully' });
     } catch (error) {
       next(error);
     }
@@ -181,7 +181,7 @@ router.patch(
         data: { isActive: false },
         select: { id: true, email: true, firstName: true, lastName: true, role: true, isActive: true },
       });
-      sendSuccess(res, user, 'User suspended successfully');
+      sendSuccess(res, user, 200, { message: 'User suspended successfully' });
     } catch (error) {
       next(error);
     }
