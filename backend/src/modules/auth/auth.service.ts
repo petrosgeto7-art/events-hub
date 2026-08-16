@@ -177,11 +177,11 @@ export class AuthService {
 
   private async generateTokens(userId: string) {
     const accessToken = jwt.sign({ userId }, env.JWT_SECRET, {
-      expiresIn: env.JWT_EXPIRES_IN,
+      expiresIn: env.JWT_EXPIRES_IN as string,
     });
 
     const refreshToken = jwt.sign({ userId }, env.JWT_REFRESH_SECRET, {
-      expiresIn: env.JWT_REFRESH_EXPIRES_IN,
+      expiresIn: env.JWT_REFRESH_EXPIRES_IN as string,
     });
 
     // Store refresh token
