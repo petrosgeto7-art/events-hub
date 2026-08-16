@@ -8,7 +8,16 @@ const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
 export const metadata: Metadata = {
   title: 'EventHub DBU — AI-Powered Campus Event Management',
-  description: 'The ultimate platform for university events at Debre Birhan University.',
+  description: 'The ultimate platform for university events at Debre Birhan University. Discover, register, scan tickets, and generate certificates seamlessly.',
+  keywords: ['DBU', 'Debre Birhan University', 'Event Management', 'Campus Events', 'Tickets', 'QR Attendance'],
+  authors: [{ name: 'EventHub DBU Team' }],
+  openGraph: {
+    title: 'EventHub DBU — Campus Event Management Platform',
+    description: 'Discover and join exciting campus events at Debre Birhan University.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'EventHub DBU',
+  },
 };
 
 export default function RootLayout({
