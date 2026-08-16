@@ -85,7 +85,13 @@ app.use('/api/commissions', commissionsRoutes);
 
 // Health check
 app.get('/api/health', (_req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString(), version: '1.0.0' });
+  res.json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    version: '1.1.0',
+    uptime: Math.floor(process.uptime()),
+    environment: env.NODE_ENV,
+  });
 });
 
 // 404 handler
