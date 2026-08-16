@@ -504,8 +504,8 @@ export default function StudentDashboard() {
                             </div>
                             <div className="flex justify-end">
                               <Dialog>
-                                <DialogTrigger asChild>
-                                  <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold">View Ticket</Button>
+                                <DialogTrigger render={<Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold" />}>
+                                  View Ticket
                                 </DialogTrigger>
                                 <DialogContent className="sm:max-w-md bg-card border-border">
                                   <DialogHeader>

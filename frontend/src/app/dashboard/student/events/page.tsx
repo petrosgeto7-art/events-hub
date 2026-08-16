@@ -120,10 +120,8 @@ export default function StudentEventsPage() {
                         )}
                         {reg.status === 'CONFIRMED' ? (
                           <Dialog>
-                            <DialogTrigger asChild>
-                              <Button variant="secondary" className="bg-white/10 hover:bg-white/20">
+                            <DialogTrigger render={<Button variant="secondary" className="bg-white/10 hover:bg-white/20" />}>
                                 View Ticket <ArrowRight className="w-4 h-4 ml-2" />
-                              </Button>
                             </DialogTrigger>
                             <DialogContent className="sm:max-w-md bg-card border-border">
                               <DialogHeader>
