@@ -161,17 +161,18 @@ export class EventsService {
           ? new Date(data.registrationDeadline)
           : null,
         isFeatured: data.isFeatured,
+        isFree: data.ticketTiers.every(t => t.price === 0),
+        price: data.ticketTiers.length > 0 ? data.ticketTiers[0].price : 0,
         organizerId,
         universityId: universityId || undefined,
         status: 'PUBLISHED',
         ticketTiers: {
-          create: [
-            {
-              name: data.isFree ? 'Free Admission' : 'General Admission',
-              price: data.isFree ? 0 : (data.price || 0),
-              capacity: data.capacity,
-            }
-          ]
+          create: data.ticketTiers.map(t => ({
+            name: t.name,
+            price: t.price,
+            capacity: t.capacity,
+            description: t.description
+          }))
         }
       },
       select: this.eventSelect,
@@ -189,10 +190,12 @@ export class EventsService {
       throw new ForbiddenError('You can only edit your own events');
     }
 
+    const { ticketTiers, clubId, ...updateData } = data;
     const updated = await prisma.event.update({
       where: { id },
       data: {
-        ...data,
+        ...updateData,
+        ...(clubId !== undefined && { clubId: clubId || null }),
         date: data.date ? new Date(data.date) : undefined,
         registrationDeadline: data.registrationDeadline
           ? new Date(data.registrationDeadline)
