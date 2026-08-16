@@ -31,7 +31,7 @@ export function authorizeOwnerOrAdmin(userIdParam: string = 'id') {
 
     const targetUserId = req.params[userIdParam];
     const isOwner = req.user.id === targetUserId;
-    const isAdmin = [Role.ADMIN, Role.SUPER_ADMIN].includes(req.user.role);
+    const isAdmin = ([Role.ADMIN, Role.SUPER_ADMIN] as Role[]).includes(req.user.role);
 
     if (!isOwner && !isAdmin) {
       return next(new ForbiddenError('Access denied'));
